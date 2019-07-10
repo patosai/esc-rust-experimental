@@ -11,7 +11,7 @@ panic-halt = "0.2.0"
 
 [dependencies.stm32f4xx-hal]
 version = "0.5.0"
-features = ["stm32f407", "device-selected"]
+features = ["stm32f407", "rt"]
 
 [profile.release]
 codegen-units = 1 # better optimizations

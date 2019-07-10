@@ -181,6 +181,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "bare-metal 0.2.4 (registry+https://github.com/rust-lang/crates.io-index)",
  "cortex-m 0.6.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "cortex-m-rt 0.6.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "vcell 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 

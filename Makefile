@@ -1,4 +1,6 @@
-all:
+all: default
+
+default:
 	cargo build
 
 release:
@@ -7,7 +9,7 @@ release:
 clean:
 	cargo clean
 
-readelf:
+readelf: all
 	arm-none-eabi-readelf -A target/thumbv7em-none-eabi/debug/esc
 
-.PHONY: all clean readelf
+.PHONY: all default release clean readelf
