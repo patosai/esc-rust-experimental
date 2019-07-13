@@ -12,17 +12,17 @@ extern crate panic_halt; // you can put a breakpoint on `rust_begin_unwind` to c
 
 extern crate stm32f4xx_hal;
 
-use cortex_m::asm;
+//use cortex_m::asm;
 use cortex_m_rt::entry;
-use stm32f4xx_hal as hal;
 
+mod adc;
 mod gpio;
 
 #[entry]
 fn main() -> ! {
-    let p = hal::stm32::Peripherals::take().unwrap();
+    let p = stm32f4xx_hal::stm32::Peripherals::take().unwrap();
 
-    asm::nop(); // To not have main optimize to abort in release mode, remove when you add code
+    //asm::nop(); // To not have main optimize to abort in release mode, remove when you add code
     gpio::turn_led_1_on(p);
 
     loop {
