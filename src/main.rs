@@ -17,10 +17,12 @@ use cortex_m_rt::entry;
 
 mod adc;
 mod gpio;
+mod spi;
 
 #[entry]
 fn main() -> ! {
     let p = stm32f4xx_hal::stm32::Peripherals::take().unwrap();
+    let clocks = stm32f4xx_hal::prelude::rcc.cfgr.sysclk(48.mhz()).freeze();
 
     //asm::nop(); // To not have main optimize to abort in release mode, remove when you add code
     gpio::turn_led_1_on(p);
