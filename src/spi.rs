@@ -11,7 +11,7 @@ pub fn enable_spi(p: Peripherals, clocks: Clocks) {
     let spi = spi::Spi(
         p.SPI2,
         (tx, rx),
-        MODE,
+        (spi::Polarity::IdleHigh, spi::Phase::CaptureOnFirstTransition),
         HERTZ,
         clocks,
     ).unwrap();

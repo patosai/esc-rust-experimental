@@ -14,6 +14,7 @@ extern crate stm32f4xx_hal;
 
 //use cortex_m::asm;
 use cortex_m_rt::entry;
+use stm32f4xx_hal::time::U32Ext;
 
 mod adc;
 mod gpio;
@@ -22,7 +23,7 @@ mod spi;
 #[entry]
 fn main() -> ! {
     let p = stm32f4xx_hal::stm32::Peripherals::take().unwrap();
-    let clocks = stm32f4xx_hal::prelude::rcc.cfgr.sysclk(48.mhz()).freeze();
+    let clocks = stm32f4xx_hal::prelude::rcc.cfgr.sysclk(48_u32.mhz()).freeze();
 
     //asm::nop(); // To not have main optimize to abort in release mode, remove when you add code
     gpio::turn_led_1_on(p);
